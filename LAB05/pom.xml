@@ -6,9 +6,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>edu.eci.cvds</groupId>
-    <artifactId>LAb05</artifactId>
+    <artifactId>Lab05</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>LAb05</name>
+    <name>Lab05</name>
     <packaging>war</packaging>
 
     <properties>
