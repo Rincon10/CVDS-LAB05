@@ -45,7 +45,7 @@ A continución los requisitos, para poder realizar el Laboratorio
 
    * __Error 301: Moved permanently__: Indica que el host ha sido capaz de comunicarse con 
 el servidor pero que el recurso solicitado ha sido movido a otra dirección permanentemente.  
-    ![Imag4](https://github.com/Rincon10/CVDS-LAB5/blob/master/resources/Error400.png)  
+    ![Imag4](https://github.com/Rincon10/CVDS-LAB5/blob/master/resources/Error301.png)  
 
 
 4. Realice una nueva conexión con telnet, esta vez a: 
