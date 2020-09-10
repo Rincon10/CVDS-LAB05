@@ -87,8 +87,7 @@ el servidor pero que el recurso solicitado ha sido movido a otra dirección perm
 ```
 curl www.httpbin.org
 ```
-![Imag8](https://github.com/Rincon10/CVDS-LAB5/blob/master/resources/curl.png) 
-El onjetivo de curl es transferir datos, sin interacción del usuario, hacia o desde un servidor.
+El objetivo de curl es transferir datos, sin interacción del usuario, hacia o desde un servidor.
 
 Utilice ahora el parámetro -v:
 ```
