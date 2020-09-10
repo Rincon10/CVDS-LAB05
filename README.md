@@ -47,6 +47,8 @@ A continución los requisitos, para poder realizar el Laboratorio
 el servidor pero que el recurso solicitado ha sido movido a otra dirección permanentemente.  
     ![Imag4](https://github.com/Rincon10/CVDS-LAB5/blob/master/resources/Error301.png)  
 
+   * __¿Qué otros códigos de error existen?, ¿En qué caso se manejarán?__ \
+   ![Imagn](https://github.com/Rincon10/CVDS-LAB5/blob/master/resources/StatusCode.png)  
 
 4. Realice una nueva conexión con telnet, esta vez a: 
    * Host: www.httpbin.org
@@ -101,6 +103,11 @@ Utilice ahora el parámetro -i:
 curl www.httpbin.org -i
 ```
 ![Imag10](https://github.com/Rincon10/CVDS-LAB5/blob/master/resources/curl-i.png)
+* __¿Cuáles son las diferencias con los diferentes parámetros?__ \
+   * El ```-v``` hace que la operación sea más detallada 
+   * El ```-i``` hace que incluya en las cabeceras de respuesta el protocolo responsable de la salida
+ 
+
 ### __Parte II. - Haciendo una aplicación Web dinámica a bajo nivel.__
 ### __Bibliografia__
 * <https://developer.mozilla.org/es/docs/Web/HTTP/Methods>
