@@ -69,7 +69,7 @@ el servidor pero que el recurso solicitado ha sido movido a otra dirección perm
 
 5. Seleccione el contenido ```HTML``` de la respuesta y copielo al cortapapeles ```CTRL-SHIFT-C```. Ejecute el comando ```wc``` (word count) para contar palabras con la opción ```-c``` para contar el número de caracteres:
    ```
-   wc -c 
+   $ wc -c 
    ```
    Nosotros guardamos el contenido del ```HTML``` en el archivo ```htmlTexto.txt``` que se encuentra en el repositorio. \
    ![Imag6](https://github.com/Rincon10/CVDS-LAB5/blob/master/resources/count.png)
@@ -109,9 +109,28 @@ curl www.httpbin.org -i
  
 
 ### __Parte II. - Haciendo una aplicación Web dinámica a bajo nivel.__
+En este ejercicio, va a implementar una aplicación Web muy básica, haciendo uso de los elementos de más bajo nivel de Java-EE (Enterprise Edition), con el fin de revisar los conceptos del protocolo HTTP. En este caso, se trata de un módulo de consulta de clientes Web que hace uso de una librería de acceso a datos disponible en un repositorio Maven local.
+1. Revise la clase SampleServlet incluida a continuacion, e identifique qué hace: \
+    **Servlet:** Los servlets son modulos java que nos sirven para extender las capacidades de los servidores web. 
+2. Revise en el pom.xml para qué puerto TCP/IP está configurado el servidor embebido de Tomcat (ver sección de plugins): \
+    El servidor se encuentra configurado para el puerto ***8080***
+3. Compile y ejecute la aplicación en el servidor embebido Tomcat, a través de Maven con:
+   ```
+   mvn package
+   mvn tomcat7:run
+   ```
+   como resultado se tiene \
+   ![Imag11](https://github.com/Rincon10/CVDS-LAB5/blob/master/resources/CompilingTomCat.png)
+4. Abra un navegador, y en la barra de direcciones ponga la URL con la cual se le enviarán peticiones al ‘SampleServlet’. Tenga en cuenta que la URL tendrá como host ‘localhost’, como puerto, el configurado en el pom.xml y el path debe ser el del Servlet. Debería obtener un mensaje de saludo. \
+   ![Imag12](https://github.com/Rincon10/CVDS-LAB5/blob/master/resources/SampleServlet.png)
+5. Observe que el Servlet ‘SampleServlet’ acepta peticiones GET, y opcionalmente, lee el parámetro ‘name’. Ingrese la misma URL, pero ahora agregando un parámetro GET (si no sabe como hacerlo, revise la documentación en <http://www.w3schools.com/tags/ref_httpmethods.asp> \
+   ![Imag13](https://github.com/Rincon10/CVDS-LAB5/blob/master/resources/SampleServletParamterName.png)
+
 ### __Bibliografia__
 * <https://developer.mozilla.org/es/docs/Web/HTTP/Methods>
 * <https://es.stackoverflow.com/questions/34904/cuando-debo-usar-los-m%C3%A9todos-post-y-get>
+* <http://www.manualweb.net/javaee/introduccion-servlets/>
+* <http://www.w3schools.com/tags/ref_httpmethods.asp>
 ### __Autores__
 
 * Camilo Rincón [Rincon10](https://github.com/Rincon10)
