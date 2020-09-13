@@ -122,9 +122,34 @@ En este ejercicio, va a implementar una aplicación Web muy básica, haciendo us
    ![Imag11](https://github.com/Rincon10/CVDS-LAB5/blob/master/resources/CompilingTomCat.png)
 4. Abra un navegador, y en la barra de direcciones ponga la URL con la cual se le enviarán peticiones al ‘SampleServlet’. Tenga en cuenta que la URL tendrá como host ‘localhost’, como puerto, el configurado en el pom.xml y el path debe ser el del Servlet. Debería obtener un mensaje de saludo. \
    ![Imag12](https://github.com/Rincon10/CVDS-LAB5/blob/master/resources/SampleServlet.png)
-5. Observe que el Servlet ‘SampleServlet’ acepta peticiones GET, y opcionalmente, lee el parámetro ‘name’. Ingrese la misma URL, pero ahora agregando un parámetro GET (si no sabe como hacerlo, revise la documentación en <http://www.w3schools.com/tags/ref_httpmethods.asp> \
+5. Observe que el Servlet ‘SampleServlet’ acepta peticiones GET, y opcionalmente, lee el parámetro ‘name’. Ingrese la misma URL, pero ahora agregando un parámetro GET (si no sabe como hacerlo, revise la documentación en <http://www.w3schools.com/tags/ref_httpmethods.asp> 
+
    ![Imag13](https://github.com/Rincon10/CVDS-LAB5/blob/master/resources/SampleServletParamterName.png)
 
+6. Busque el artefacto ```gson``` en el repositorio de ```maven``` y agregue la dependencia.
+   ```
+   <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+   <dependency>
+    <groupId>com.google.code.gson</groupId>
+    <artifactId>gson</artifactId>
+    <version>2.3.1</version>
+   </dependency>
+   ```
+7. En el navegador revise la dirección <https://jsonplaceholder.typicode.com/todos/1.> Intente cambiando diferentes números al final del path de la url.
+   * numero = 1
+
+       ![Imag14](https://github.com/Rincon10/CVDS-LAB5/blob/master/resources/jsonplaceholderId1.png)
+   * numero = 2
+
+       ![Imag15](https://github.com/Rincon10/CVDS-LAB5/blob/master/resources/jsonplaceholderId2.png)
+   * numero = 55 
+       
+       ![Imag16](https://github.com/Rincon10/CVDS-LAB5/blob/master/resources/jsonplaceholderId55.png)
+
+8. Basado en la respuesta que le da el servicio del punto anterior, cree la clase ```edu.eci.cvds.servlet.model.Todo``` con un constructor vacío y los métodos ```getter``` y ```setter``` para las propiedades de los "To Dos" que se encuentran en la url indicada.
+   
+   __Revisar ```edu.eci.cvds.servlet.model.Todo``` en el proyecto que se encuentra en el repo.__
+9. Cree una clase que herede de la clase HttpServlet (similar a SampleServlet), y para la misma sobrescriba el método heredado ```doGet```. Incluya la anotación ```@Override``` para verificar –en tiempo de compilación- que efectivamente se esté sobreescribiendo un método de las superclases.
 ### __Bibliografia__
 * <https://developer.mozilla.org/es/docs/Web/HTTP/Methods>
 * <https://es.stackoverflow.com/questions/34904/cuando-debo-usar-los-m%C3%A9todos-post-y-get>
