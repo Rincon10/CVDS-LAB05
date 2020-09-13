@@ -17,7 +17,7 @@ A continución los requisitos, para poder realizar el Laboratorio
 
 
 
-### __Parte I. - Jugando a ser un cliente HTTP__
+# __Parte I. - Jugando a ser un cliente HTTP__
 
 1. Abra una terminal Linux o consola de comandos Windows.
 2. Realice una conexión síncrona TCP/IP a través de Telnet al siguiente servidor:
@@ -107,7 +107,7 @@ curl www.httpbin.org -i
    * El ```-i``` hace que incluya en las cabeceras de respuesta el protocolo responsable de la salida
  
 
-### __Parte II. - Haciendo una aplicación Web dinámica a bajo nivel.__
+# __Parte II. - Haciendo una aplicación Web dinámica a bajo nivel.__
 En este ejercicio, va a implementar una aplicación Web muy básica, haciendo uso de los elementos de más bajo nivel de Java-EE (Enterprise Edition), con el fin de revisar los conceptos del protocolo HTTP. En este caso, se trata de un módulo de consulta de clientes Web que hace uso de una librería de acceso a datos disponible en un repositorio Maven local.
 1. Revise la clase SampleServlet incluida a continuacion, e identifique qué hace: \
     **Servlet:** Los servlets son modulos java que nos sirven para extender las capacidades de los servidores web. 
