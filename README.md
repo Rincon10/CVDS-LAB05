@@ -150,11 +150,46 @@ En este ejercicio, va a implementar una aplicación Web muy básica, haciendo us
    
    __Revisar ```edu.eci.cvds.servlet.model.Todo``` en el proyecto que se encuentra en el repo.__
 9. Cree una clase que herede de la clase HttpServlet (similar a SampleServlet), y para la misma sobrescriba el método heredado ```doGet```. Incluya la anotación ```@Override``` para verificar –en tiempo de compilación- que efectivamente se esté sobreescribiendo un método de las superclases.
+
+   __Revisar ```edu.eci.cvds.servlet.NewServlet``` en el proyecto que se encuentra en el repo.__
+10. Teniendo en cuenta las siguientes los métodos disponibles en los objetos ServletRequest y ServletResponse recibidos por el método doGet:
+   * __Implemente dicho método de manera que:__
+      * Asuma que la petición ```HTTP``` recibe como parámetro el número de ```id``` de una lista de cosas por hacer (todo), y que dicha identificación es un número entero.
+
+      * Con el identificador recibido, consulte el item por hacer de la lista de cosas por hacer, usando la clase "Service" creada en el punto 10.
+
+      * __Si el item existe:__
+          * Responder con el código HTTP que equivale a ‘OK’ [ver referencia anterior](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes), y como contenido de dicha respuesta, el código html correspondiente a una página con una tabla que tenga los detalles del item, usando la clase "Service" creada en el punto 10 par crear la tabla.
+
+      * __Si el item no existe:__
+          * Responder con el código correspondiente a ‘no encontrado’, y con el código de una página html que indique que no existe un item con el identificador dado.
+          * Si no se paso parámetro opcional, o si el parámetro no contiene un número entero, devolver el código equivalente a ```requerimiento inválido```.
+          * Si se genera la excepcion ```MalformedURLException``` devolver el código de ```error interno en el servidor```
+          * Para cualquier otra excepcion, devolver el código equivalente a ```requerimiento inválido```.
+
+
+     __Revisar ```edu.eci.cvds.servlet.model.Todo``` en el proyecto que se encuentra en el repo.__
+11. Intente hacer diferentes consultas desde un navegador Web para probar las diferentes funcionalidades.
+   * Salida Valida
+
+     ![Imag17](https://github.com/Rincon10/CVDS-LAB5/blob/master/resources/validOutput.png)
+   * Excepcion numberFormatException
+
+     ![Imag18](https://github.com/Rincon10/CVDS-LAB5/blob/master/resources/nuException.png)
+   * Excepcion fileNotFoundException
+
+     ![Imag19](https://github.com/Rincon10/CVDS-LAB5/blob/master/resources/fileException.png)
+
+
+
+# __Parte III__
+    
 ### __Bibliografia__
 * <https://developer.mozilla.org/es/docs/Web/HTTP/Methods>
 * <https://es.stackoverflow.com/questions/34904/cuando-debo-usar-los-m%C3%A9todos-post-y-get>
 * <http://www.manualweb.net/javaee/introduccion-servlets/>
 * <http://www.w3schools.com/tags/ref_httpmethods.asp>
+* <https://en.wikipedia.org/wiki/List_of_HTTP_status_codes>
 ### __Autores__
 
 * Camilo Rincón [Rincon10](https://github.com/Rincon10)
