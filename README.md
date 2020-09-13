@@ -183,13 +183,27 @@ En este ejercicio, va a implementar una aplicación Web muy básica, haciendo us
 
 
 # __Parte III__
-    
+1. En su servlet, sobreescriba el método doPost, y haga la misma implementación del doGet.
+
+2. En la página anterior, cree un formulario que tenga un campo para ingresar un número y un botón. El formulario debe usar como método ‘POST’, y como acción, la ruta relativa del último servlet creado
+
+   ![Imag20](https://github.com/Rincon10/CVDS-LAB5/blob/master/resources/impForm.png)
+
+   ![Imag21](https://github.com/Rincon10/CVDS-LAB5/blob/master/resources/postForm.png)
+3. Revise este [ejemplo de validación de formularios con javascript](https://www.w3schools.com/js/js_validation.asp) y agruéguelo a su formulario, de manera que -al momento de hacer ‘submit’- desde el browser se valide que el valor ingresado es un valor numérico.
+4. Recompile y ejecute la aplicación. Abra en su navegador en la página del formulario, y rectifique que la página hecha anteriormente sea mostrada. Ingrese los datos y verifique los resultados. Cambie el formulario para que ahora en lugar de POST, use el método GET . 
+
+   ![Imag22](https://github.com/Rincon10/CVDS-LAB5/blob/master/resources/getForm.png)
+   * ¿Qué diferencia observa?
+
+     Con el post se oculta el path del recurso que se quiere consultar, get si lo muestra
 ### __Bibliografia__
 * <https://developer.mozilla.org/es/docs/Web/HTTP/Methods>
 * <https://es.stackoverflow.com/questions/34904/cuando-debo-usar-los-m%C3%A9todos-post-y-get>
 * <http://www.manualweb.net/javaee/introduccion-servlets/>
 * <http://www.w3schools.com/tags/ref_httpmethods.asp>
 * <https://en.wikipedia.org/wiki/List_of_HTTP_status_codes>
+* <http://www.w3schools.com/html/>
 ### __Autores__
 
 * Camilo Rincón [Rincon10](https://github.com/Rincon10)
