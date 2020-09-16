@@ -10,44 +10,22 @@ import static java.lang.Math.sqrt;
 @ManagedBean(name = "calculadoraBean")
 @ApplicationScoped
 public class CalculadoraBean {
-    private int number;
-    private int attempts;
-    private int price;
-    private String status;
+    private int[] numbers;
+    private double mode;
+    private double mean;
+    private double variance;
+    private int length;
 
     private CalculadoraBean(){
     }
-    public int getNumber() {
-        return number;
-    }
-    public void setNumber(int number){
-        this.number = number;
-    }
-    public int getAttempts(){
-        return attempts;
-    }
-    public void setAttempts(int attempts){
-        this.attempts = attempts;
-    }
-    public int getPrice(){
-        return price;
-    }
-    public void setPrice(int price){
-        this.price = price;
-    }
-    public String getStatus(){
-        return status;
-    }
-    public void setStatus(String status){
-        this.status = status;
-    }
 
     public double calculateMean(int[] list){
+        setNumbers(list);
         int prom = 0;
-        for (int i = 0; i < list.length; i++){
-            prom += list[i];
+        for (int i = 0; i < length; i++){
+            prom += numbers[i];
         }
-        return prom/ list.length;
+        return prom/ length;
     }
     public double calculateStandardDeviation(int[] list){
         return sqrt(calculateVariance(list));
@@ -55,19 +33,20 @@ public class CalculadoraBean {
     public double calculateVariance(int[] list){
         double media = calculateMean(list);
         double act = 0;
-        for (int i = 0; i < list.length; i++){
-            double temp = (media - list[i]) * (media - list[i]);
+        for (int i = 0; i < length; i++){
+            double temp = (media - numbers[i]) * (media - numbers[i]);
             act += temp;
         }
         return act/media;
     }
     public double calculateMode(int[] list){
+        setNumbers(list);
         int times = -1,count;
-        double mode = 0;
-        for(int i = 0; i < list.length; i++){
-            double act = list[i];
+        mode = 0;
+        for(int i = 0; i < length; i++){
+            double act = numbers[i];
             count = 0;
-            for (int j = i; j < list.length; j++){
+            for (int j = i; j < length; j++){
                 if (list[j] == i){
                     count++;
                 }
@@ -82,4 +61,44 @@ public class CalculadoraBean {
     public void restart(){
     }
 
+    public int[] getNumbers() {
+        return numbers;
+    }
+
+    public void setNumbers(int[] numbers) {
+        this.numbers = numbers;
+        setLength(numbers.length);
+    }
+
+    public double getMode() {
+        return mode;
+    }
+
+    public void setMode(double mode) {
+        this.mode = mode;
+    }
+
+    public double getMean() {
+        return mean;
+    }
+
+    public void setMean(double mean) {
+        this.mean = mean;
+    }
+
+    public double getVariance() {
+        return variance;
+    }
+
+    public void setVariance(double variance) {
+        this.variance = variance;
+    }
+
+    public int getLength() {
+        return length;
+    }
+
+    public void setLength(int length) {
+        this.length = length;
+    }
 }
