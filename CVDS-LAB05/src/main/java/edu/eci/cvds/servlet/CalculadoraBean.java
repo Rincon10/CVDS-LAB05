@@ -2,6 +2,8 @@ package edu.eci.cvds.servlet;
 
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
+import javax.swing.JOptionPane;
+
 import java.lang.Math;
 import java.util.ArrayList;
 
@@ -19,52 +21,52 @@ public class CalculadoraBean {
     private int length;
     
 
-    
+    public void calculate(String list) {
+    	try {
+    		numbers = new ArrayList<Double>();
+        	String[] array = list.split(";");
+        	for( String string: array) {
+        		numbers.add( Double.parseDouble(string) );
+        	}
+        	calculateAll();
+    	}
+    	catch(Exception e) {
+    		restart();
+    	}
+    	
+    }
     public void restart(){
-    	numbers= null;
-    	mode=0;
-    	mean=0;
-    	variance=0;
-    	standar=0;
-    	length = 0;
+    	numbers= new ArrayList<Double>();
+    	numbers.add(0.0);
+    	calculateAll();
     }
 
-    public void calculate(String list) {
-    	System.out.print("enterrerer");
-    	numbers = new ArrayList<Double>();
-    	String[] array = list.split(";");
-    	for( String string: array) {
-    		numbers.add( Double.parseDouble(string) );
-    	}
-    	setNumbers(numbers);
-    	calculateMean(numbers);
-    	calculateMode(numbers);
-    	calculateStandardDeviation(numbers);
-    	calculateVariance(numbers);
+    public void calculateMean(ArrayList<Double> list){
+    	mean = 0;
+        for (Double number:list){
+        	mean += number;
+        }
+        mean/= length;
+    }
+    public void calculateStandardDeviation(ArrayList<Double> list){
+        standar = Math.sqrt(calculateVariance(list));
+    }
+    /**
+     * 
+     * @param list
+     * @return
+     */
+    public double calculateVariance(ArrayList<Double> list){
+        double act = 0;
+        variance =0;
+        for (Double number:list){
+            act +=  Math.pow(mean - number,2f);
+        }
+        variance = act/(length-1);
+        return variance;
     }
     
-    public double calculateMean(ArrayList<Double> list){
-        setNumbers(list);
-        int prom = 0;
-        for (int i = 0; i < length; i++){
-            prom += numbers.get(i);
-        }
-        return prom/ length;
-    }
-    public double calculateStandardDeviation(ArrayList<Double> list){
-        return sqrt(calculateVariance(list));
-    }
-    public double calculateVariance(ArrayList<Double> list){
-        double media = calculateMean(list);
-        double act = 0;
-        for (int index = 0; index < length; index++){
-            double temp = (media - numbers.get(index)) * (media - numbers.get(index) ) ;
-            act += temp;
-        }
-        return act/media;
-    }
-    public double calculateMode(ArrayList<Double> list){
-        setNumbers(list);
+    public void calculateMode(ArrayList<Double> list){
         int times = -1,count;
         mode = 0;
         for(int i = 0; i < length; i++){
@@ -80,7 +82,15 @@ public class CalculadoraBean {
                 times = count;
             }
         }
-        return mode;
+    }
+    
+    private void calculateAll() {
+    	setNumbers(numbers);
+    	calculateMean(numbers);
+    	calculateMode(numbers);
+    	calculateVariance(numbers);
+    	calculateStandardDeviation(numbers);
+    	
     }
 
     public ArrayList<Double> getNumbers() {

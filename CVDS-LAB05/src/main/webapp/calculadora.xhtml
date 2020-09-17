@@ -10,8 +10,8 @@
 <h:body>
 	<h:form id="calculadora_form">
 		<h:panelGrid columns="2"> 
-			<h:outputLabel value="Entrada:" style="display: none;"/> 
-			<h:inputText id="lista" type="text" binding="#{input}"/> 
+			<h:outputLabel value="Entrada:"/> 
+			<h:inputText id="lista" type="text" binding="#{input}" /> 
 			<h:outputLabel value="Moda:" />
 			<h:outputLabel value="#{calculadoraBean.mode}" />
 			<h:outputLabel value="Media:" />
@@ -20,10 +20,12 @@
 			<h:outputLabel value="#{calculadoraBean.standar}" />
 			<h:outputLabel value="Varianza:" />
 			<h:outputLabel value="#{calculadoraBean.variance}" />
+			<h:commandButton value="Calcular"  update="calculadora_form" actionListener="#{calculadoraBean.calculate(input.value)}"/>
+		    <h:commandButton value="Reiniciar" update="calculadora_form" actionListener="#{calculadoraBean.restart}"/>
 		</h:panelGrid>
+		
 	</h:form>
-	<h:commandButton value="Calcular"  update="calculadora_form" actionListener="#{calculadoraBean.calculate(input.value)}"/>
-	<h:commandButton value="Reiniciar" update="calculadora_form" actionListener="#{calculadoraBean.restart}"/>
+	
 	
 	
 
