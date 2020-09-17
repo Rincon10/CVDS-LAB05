@@ -34,3 +34,4 @@ run/
 bin/
 .settings/
 *.classpath
+build/
