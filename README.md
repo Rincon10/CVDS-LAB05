@@ -197,6 +197,61 @@ En este ejercicio, va a implementar una aplicación Web muy básica, haciendo us
    * ¿Qué diferencia observa?
 
      Con el post se oculta el path del recurso que se quiere consultar, get si lo muestra
+
+# __Parte IV- Frameworks Web MVC – Java Server Faces / Prime Faces__
+
+En este ejercicio, usted va a desarrollar una aplicación Web basada en el marco JSF, y en una de sus implementaciones más usadas: PrimeFaces. 
+
+Escriba una aplicación web que utilice PrimeFaces para calcular la media, la moda, la desviación estándar y varianza de un conjunto de N números reales. Este conjunto de N números reales deben ser ingresados por el usuario de manera que puedan ser utilizados para los cálculos.
+
+1. Revisar los casos de uso de la aplicacion **Revisar astah**
+2. Al proyecto Maven, debe agregarle las dependencias mas recientes de ```javax.javaee-api```, ```com.sun.faces.jsf-api```, ```com.sun.faces.jsf-impl```, ```javax.servlet.jstl``` y Primefaces (en el archivo pom.xml).
+   ```
+   <servlet>
+     <servlet-name>Faces Servlet</servlet-name>
+     <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+   <load-on-startup>1</load-on-startup>
+   </servlet>
+   <servlet-mapping>
+     <servlet-name>Faces Servlet</servlet-name>
+     <url-pattern>/faces/*</url-pattern>
+   </servlet-mapping>
+   <welcome-file-list>
+      <welcome-file>faces/index.jsp</welcome-file>
+   </welcome-file-list>
+   ```
+3. Ahora, va a crear un Backing-Bean de sesión, el cual, para cada usuario, mantendrá de lado del servidor las siguientes propiedades:
+
+   Para hacer esto, cree una clase que tenga:
+      * el constructor por defecto (sin parámetros)
+      * los métodos ```get/set``` necesarios dependiendo si las propiedades son de escritura o lectura
+      * coloque las anotaciones:
+           * ```@ManagedBean```incluyendo el nombre:
+           * ```@ApplicationScoped```
+
+    A la implementación de esta clase, agregue los siguientes métodos:
+      * calculateMean: Debe recibir como parámetro el listado de valores y retornar el promedio de los números en ella.
+      * calculateStandardDeviation: Debe recibir como parámetro el listado de valores y retornar el la desviación estandar de los números en ella.
+      * calculateVariance: Debe recibir como parámetro el listado de valores y retornar la varianza de los números en ella.
+      * calculateMode: Debe recibir como parámetro el listado de valores y retornar la moda de los números en ella.
+      * restart: Debe volver a iniciar la aplicación (Borrar el campo de texto para que el usuario agregue los datos).
+4. Cree una página XHTML, de nombre calculadora.xhtml (debe quedar en la ruta src/main/webapp). [Revise en la página 13 del manual de PrimeFaces](https://www.primefaces.org/docs/guide/primefaces_user_guide_5_2.pdf), qué espacios de nombres XML requiere una página de PrimeFaces y cuál es la estructura básica de la misma
+5. Verificando el funcionamiento de la aplicación:
+* Ingresando datos
+
+    ![Imag23](https://github.com/Rincon10/CVDS-LAB5/blob/master/resources/calcBean1.png)
+    
+    ![Imag24](https://github.com/Rincon10/CVDS-LAB5/blob/master/resources/calcBeanD.png)
+ 
+    ![Imag25](https://github.com/Rincon10/CVDS-LAB5/blob/master/resources/calcBean2.png)
+* Reiniciando
+
+    ![Imag26](https://github.com/Rincon10/CVDS-LAB5/blob/master/resources/calcBeanR.png)
+* Abriendo en diferentes navegadores 
+   * Microsoft edge y Firefox
+
+      ![Imag27](https://github.com/Rincon10/CVDS-LAB5/blob/master/resources/microsoftAndfirefox.png)
+
 ### __Bibliografia__
 * <https://developer.mozilla.org/es/docs/Web/HTTP/Methods>
 * <https://es.stackoverflow.com/questions/34904/cuando-debo-usar-los-m%C3%A9todos-post-y-get>
@@ -204,6 +259,7 @@ En este ejercicio, va a implementar una aplicación Web muy básica, haciendo us
 * <http://www.w3schools.com/tags/ref_httpmethods.asp>
 * <https://en.wikipedia.org/wiki/List_of_HTTP_status_codes>
 * <http://www.w3schools.com/html/>
+* <https://www.primefaces.org/docs/guide/primefaces_user_guide_5_2.pdf>
 ### __Autores__
 
 * Camilo Rincón [Rincon10](https://github.com/Rincon10)
