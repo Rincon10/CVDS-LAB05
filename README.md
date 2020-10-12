@@ -262,5 +262,6 @@ Escriba una aplicación web que utilice PrimeFaces para calcular la media, la mo
 * <https://www.primefaces.org/docs/guide/primefaces_user_guide_5_2.pdf>
 ### __Autores__
 
+
 * Camilo Rincón [Rincon10](https://github.com/Rincon10)
 * Leonardo Galeano [Ersocaut](https://github.com/Ersocaut)
